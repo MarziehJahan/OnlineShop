@@ -1,0 +1,107 @@
+﻿@model UserViewModel
+@section head{
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>قالب ریسپانسیو فروشگاهی pillomart :: دریافت شده از وب روبیک</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap4-rtl.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/css/all.css">
+    <!-- icon CSS -->
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/themify-icons.css">
+    <!-- magnific popup CSS -->
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <!-- nice select CSS -->
+    <link rel="stylesheet" href="~/css/nice-select.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+}
+
+
+<div class="container">
+    @if (@ViewBag.message == "ثبت نام با موفقیت انجام شد")
+    {
+        <div class="border-success alert alert-success">
+            @ViewBag.message
+        </div>
+    }
+    else if (@ViewBag.message != null)
+    {
+        <div class="border-danger alert alert-danger" style="text-align:right">
+            @ViewBag.message
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+    }
+
+    <div class="section-top-border">
+        <div class="row">
+
+            <div class="col-lg-8 col-md-8">
+                <h3 class="mb-30">فرم ثبت نام خریداران</h3>
+                <form asp-action="UserSignUp" asp-controller="User" method="post" enctype="multipart/form-data">
+                    <div class="mt-10">
+                        <input asp-for="Username" type="text" placeholder="نام کاربری"
+                               onfocus="this.placeholder = ''" required
+                               class="single-input-primary">
+                    </div>
+                    <div class="mt-10">
+                        <input asp-for="Email" type="text" placeholder="آدرس ایمیل" onfocus="this.placeholder = ''"
+                               required class="single-input-primary">
+                    </div>
+                    <div class="mt-10">
+                        <input asp-for="Password" type="text" placeholder="رمز عبور"
+                               onfocus="this.placeholder = ''" required
+                               class="single-input-primary">
+                    </div>
+                    <div class="mt-10">
+                        <input asp-for="PhoneNumber" type="text" placeholder="شماره تلفن" onfocus="this.placeholder = ''"
+                               required class="single-input-primary">
+                    </div>
+
+                    <div class="button-area">
+                        <input type="submit" value="ثبت" class="btn_3" />
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+@section scripts{
+    <!-- jquery plugins here-->
+    <script src="~/js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="~/js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="~/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/js/mixitup.min.js"></script>
+    <!-- particles js -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <script src="~/js/waypoints.min.js"></script>
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/js/jquery.form.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="~/js/custom.js"></script>
+}

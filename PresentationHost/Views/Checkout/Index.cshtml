@@ -1,0 +1,125 @@
+﻿@model Order
+    <section class="breadcrumb_part">
+     
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb_iner">
+                            <h2>چک کردن نهایی</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="checkout_area section_padding">
+     
+        <div class="container">
+            <form class="row contact_form" asp-action="index" asp-controller="Checkout" method="post">
+                <div class="cupon_area">
+                    <div class="check_title">
+                        <h2>
+                            آیا کد تخفیف دارید؟
+                            <a href="#">کد خود را اینجا وارد کنید</a>
+                        </h2>
+                    </div>
+                    <input type="text" placeholder="کد تخفیف را وارد کنید" />
+                    <a class="tp_btn" href="#">درج کد تخفیف</a>
+                </div>
+                <div class="billing_details">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3>جزئیات صورتحساب</h3>
+
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" placeholder="نام" class="form-control" id="first" asp-for="Name" />
+
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" placeholder="نام خانوادگی" class="form-control" id="last" asp-for="Surname" />
+
+                            </div>
+
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" placeholder="شماره تلفن" class="form-control" id="number" asp-for="Phone" />
+
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="password" placeholder="رمز عبور" class="form-control" id="password" asp-for="Password" />
+
+                            </div>
+
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" placeholder="آدرس" id="add1" asp-for="Address" />
+
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="zip" asp-for="ZipCode" placeholder="کدپستی" />
+                            </div>
+
+                            <div class="col-md-12 form-group">
+
+                                <textarea class="form-control" name="PaymentNote" id="message"
+                                          placeholder="یادداشت مربوط به سفارش"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="order_box">
+                                <h2>سفارش شما</h2>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">
+                                            محصولات
+                                            <span>مجموع</span>
+                                        </a>
+                                    </li>
+                                    @foreach (var item in (ViewBag.Cart as Cart).CartLines)
+                                    {
+                                        <li>
+                                            <a href="#">
+                                                @item.Product.Name
+                                                <span class="middle">@item.Quantity عدد</span>
+                                                <span class="last">@(@item.Quantity * @item.Product.Price) تومان</span>
+                                            </a>
+                                        </li>
+                                    }
+
+
+
+                                </ul>
+                                <ul class="list list_2">
+
+
+                                    <li>
+                                        <a href="#">
+                                            مجموع
+                                            <span>@((ViewBag.Cart as Cart).GetTotalPrice()) تومان</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="payment_item active">
+                                    <div class="radion_btn">
+                                        <input type="radio" id="f-option6" name="selector" />
+                                        <label for="f-option6">درگاه بانک </label>
+                                        <img src="img/product/single-product/card.jpg" alt="" />
+                                        <div class="check"></div>
+                                    </div>
+
+                                </div>
+                                <div class="creat_account">
+                                    <input type="checkbox" id="f-option4" name="selector" />
+                                    <label for="f-option4">شرایط را خوانده و قبول دارم </label>
+                                    <a href="#">ضوابط و شرایط*</a>
+                                </div>
+                                <input type="submit" class="btn_3" value="رفتن به درگاه بانک" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+     
+    </section>
+<!--================End Checkout Area =================-
